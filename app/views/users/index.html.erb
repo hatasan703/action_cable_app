@@ -1,0 +1,23 @@
+<%= @admin.email %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+<h1>管理者ページ</h1>
+
+
+
+  <table>
+    <tr>
+      <th>お問い合わせユーザーIP　</th>
+      <th>お問い合わせのあったページ　</th>
+      <th>お問い合わせメッセージ　</th>
+      <th>アクセス情報　</th>
+    </tr>
+    <% @chats.each do |chat| %>
+      <tr>
+        <td class="icon bird"><%= chat.user_ip %></td>
+        <td><%= link_to "#{Spot.find(chat.spot_id).title}", spot_path(chat.spot_id) %></td>
+        <td class=""><%= link_to "#{chat.message}", "/users/#{current_user.id}/chats/#{chat.id}" %></td>
+        <td><%= chat.created_at %></td>
+      </tr>
+    <% end %>
+  </table>

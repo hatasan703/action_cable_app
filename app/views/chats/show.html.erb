@@ -1,0 +1,32 @@
+
+<h1>お問い合わせフォーム</h1>
+
+<h2 style="text-align:center">相手とのチャット</h2>
+
+<div id="chats">
+  <% @chats.each do |chat|%>
+    <%if chat.send_id == @user_ip %>
+      <div class="mycomment">
+        <p><%= chat.message %></p>
+      </div>
+    <%else%>
+      <div class="fukidasi">
+        <div class="faceicon">
+          <img src="" alt="相手">
+        </div>
+        <div class="chatting">
+          <div class="says">
+            <p><%= chat.message %></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+</div>
+
+<form id="send-form">
+  <input type="text" id="message" placeholder="入力してね">
+  <input type="submit" value="送信" id="send">
+  <input id="user_ip" type="hidden" value= "<%= @user_ip %>">
+  <input id="admin_id" type="hidden" value= "<%= @admin_id %>">
+</form>

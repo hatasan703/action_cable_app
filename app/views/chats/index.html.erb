@@ -1,0 +1,39 @@
+<table class="rooms">
+  <tbody>
+    <tr>
+      <td>
+        <%@chat_partners.each do |chat_partner|%>
+          <%=link_to "#{chat_partner.email}さんとのトークルーム","/chats/#{chat_partner.id}"%>
+        <%end%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <table>
+    <tr>
+      <th>プロフィール</th>
+      <th>サイト</th>
+      <th>アクセス情報</th>
+    </tr>
+    <tr>
+      <td class="icon bird">55fd873a05043170</td>
+      <td>ホテルセンチュリー</td>
+      <td>2021-07-11 00:45:55</td>
+    </tr>
+    <tr>
+      <td class="icon whale">55fd873a05043170</td>
+      <td>ホテルセンチュリー</td>
+      <td>2021-07-11 00:45:55</td>
+    </tr>
+    <tr>
+      <td class="icon crab">55fd873a05043170</td>
+      <td>ホテルセンチュリー</td>
+      <td>2021-07-11 00:45:55</td>
+    </tr>
+  </table>
+
+</div>
+<%=link_to("ログインページへ","/")%>
+<%=link_to("ログアウトする","/users/sign_out",method: :delete)%>

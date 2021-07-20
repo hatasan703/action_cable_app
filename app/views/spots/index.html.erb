@@ -1,0 +1,6 @@
+<%= link_to "管理者としてログイン", new_user_session_path, class: "" %><br><br><br>
+
+<% @spots.each do |spot| %>
+  <%=link_to "#{spot.title}へ移動する","/spots/#{spot.id}"%>
+  <%= spot.description %><br><br>
+<% end %>

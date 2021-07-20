@@ -1,0 +1,37 @@
+<%= link_to '戻る', users_path %>
+
+<h1 class="contact_title">お問い合わせユーザーとのチャット</h1>
+
+<div id="chats">
+  <% @chats.each do |chat|%>
+    <%if chat.sender == 'user' %>
+      <div class="mycomment">
+        <p><%= chat.message %></p>
+      </div>
+    <%else%>
+      <div class="fukidasi">
+        <div class="faceicon">
+          <img src="" alt="運営">
+        </div>
+        <div class="chatting">
+          <div class="says">
+            <p><%=chat.message%></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+</div>
+
+<form id="send-form">
+  <input type="text" id="message" placeholder="入力してね">
+  <input type="submit" value="送信" id="send">
+  <input id="user_ip" type="hidden" value= "<%= @user_ip %>">
+  <input id="admin_id" type="hidden" value= "<%= @admin_id %>">
+  <% if current_user %> <%# 本来はadminかどうかを判定する %>
+    <input id="sender" type="hidden" value= "admin">
+  <% else %>
+    <input id="sender" type="hidden" value= "user">
+  <% end %>
+  <input id="spot_id" type="hidden" value= "<%= @spot.id %>">
+</form>
