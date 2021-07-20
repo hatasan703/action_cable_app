@@ -1,24 +1,21 @@
-# README
+# action cableを用いたお問い合わせチャット機能の実装例
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 1 
+```
+rails db:seed
+```
 
-Things you may want to cover:
+記事一覧
+```
+http://localhost:3000/spots
+```
 
-* Ruby version
+各記事のお問い合わせチャットページ
+```
+http://localhost:3000/spots/1
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ユーザー(admin)側のお問い合わせ一覧
+```
+http://localhost:3000/users
+```
